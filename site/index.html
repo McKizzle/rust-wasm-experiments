@@ -1,0 +1,27 @@
+<script type='text/javascript'>
+  var Module = {};
+
+  fetch('site.wasm')
+    .then(response => response.arrayBuffer())
+    .then(buffer => {
+      Module.wasmBinary = buffer;
+      Module._main = function() {
+        var ping = Module.cwrap('ping', 'string', []);
+        var pong = ping();
+        console.log(pong);
+      }
+
+      var script = document.createElement("script");
+      script.src = "site.js";
+      script.onload = function() {
+        console.log("Emscripten boilerplate loaded.");
+      };
+    });
+   
+</script>
+<script type="text/javascript" src="site.js"></script>
+<html>
+  <body>
+    <p> Open up your console to view the output. </p>
+  </body>
+</html>

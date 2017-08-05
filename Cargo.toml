@@ -1,0 +1,6 @@
+[package]
+name = "wasm-tools-library"
+version = "0.1.0"
+authors = ["MrMcKizzle <ziesunkownemail@clueless.duh>"]
+
+[dependencies]
